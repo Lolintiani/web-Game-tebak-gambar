@@ -1,0 +1,191 @@
+/* css/style.css */
+
+/* Custom Bootstrap Variable Overrides */
+/* Ini akan mengubah warna primary Bootstrap menjadi kuning, dan secondary menjadi oranye */
+/* Anda bisa menempatkan ini di atas atau di bawah import Bootstrap CSS */
+:root {
+    --bs-primary: #FFD700;   /* Kuning Emas */
+    --bs-primary-rgb: 255, 215, 0;
+    --bs-secondary: #FFA500;  /* Oranye Cerah */
+    --bs-secondary-rgb: 255, 165, 0;
+    --bs-light: #FFF8DC;     /* Krem Terang */
+    --bs-dark: #343A40;      /* Abu-abu gelap untuk navbar/footer jika diperlukan */
+}
+
+body {
+    padding-top: 56px; /* Untuk menyesuaikan dengan tinggi navbar Bootstrap */
+    /* background-color: #f8f9fa; */ /* Latar belakang body netral - Ganti dengan ini */
+    font-family: Arial, sans-serif; /* Opsional: Ubah font */
+
+    /* MULAI PENAMBAHAN/MODIFIKASI UNTUK MOTIF LATAR BELAKANG */
+    background-color: var(--bs-light); /* Latar belakang dasar krem terang */
+    background-image:
+        linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 100%),
+        linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0.1) 100%);
+    background-size: 30px 30px; /* Ukuran motif */
+    background-position: 0 0, 15px 15px; /* Offset untuk pola silang */
+    /* AKHIR PENAMBAHAN/MODIFIKASI UNTUK MOTIF LATAR BELAKANG */
+}
+
+/* Navbar Customization */
+.navbar.bg-primary {
+    background-color: var(--bs-primary) !important; /* Pastikan navbar menggunakan kuning */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Tambah sedikit bayangan */
+}
+.navbar-brand, .navbar-nav .nav-link {
+    color: var(--bs-dark) !important; /* Teks navbar gelap agar kontras dengan kuning */
+    font-weight: bold;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--bs-secondary) !important; /* Link hover/active jadi oranye */
+}
+
+/* Card Styling */
+.card {
+    max-width: 800px;
+    margin: 30px auto;
+    border: none; /* Hilangkan border default Bootstrap */
+    border-radius: 15px; /* Sudut lebih membulat */
+    overflow: hidden; /* Penting untuk radius border */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Bayangan yang lebih menonjol */
+}
+
+.card-header {
+    background-color: var(--bs-primary) !important; /* Header card kuning */
+    color: var(--bs-dark) !important; /* Teks header gelap */
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1.5rem;
+    border-bottom: none;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.card-body {
+    background-color: var(--bs-light); /* Body card krem terang */
+    padding: 2rem;
+}
+
+/* Tombol */
+.btn-primary {
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+    color: var(--bs-dark) !important; /* Teks tombol primary gelap */
+    font-weight: bold;
+}
+.btn-primary:hover {
+    background-color: var(--bs-secondary) !important; /* Hover jadi oranye */
+    border-color: var(--bs-secondary) !important;
+    color: #fff !important; /* Teks tombol jadi putih saat hover */
+}
+
+.btn-success { /* Untuk tombol "Mulai Game Baru" atau "Daftar" */
+    background-color: var(--bs-secondary) !important;
+    border-color: var(--bs-secondary) !important;
+    color: #fff !important;
+    font-weight: bold;
+}
+.btn-success:hover {
+    background-color: #e69500 !important; /* Sedikit lebih gelap dari secondary saat hover */
+    border-color: #e69500 !important;
+}
+
+.btn-info { /* Untuk tombol "Simpan Skor" atau "Leaderboard" */
+    background-color: var(--bs-secondary) !important;
+    border-color: var(--bs-secondary) !important;
+    color: #fff !important;
+}
+.btn-info:hover {
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+    color: var(--bs-dark) !important;
+}
+
+.btn-danger {
+    background-color: #dc3545 !important; /* Tetap merah untuk bahaya (logout) */
+    border-color: #dc3545 !important;
+}
+
+.btn-warning { /* Untuk tombol "Lewati Gambar" */
+    background-color: #ffc107 !important; /* Kuning standar Bootstrap */
+    border-color: #ffc107 !important;
+    color: #343a40 !important;
+}
+.btn-warning:hover {
+    background-color: #e0a800 !important;
+    border-color: #e0a800 !important;
+}
+
+
+/* Input Fields */
+.form-control:focus {
+    border-color: var(--bs-secondary);
+    box-shadow: 0 0 0 0.25rem rgba(255, 165, 0, 0.25);
+}
+.answer-input {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Image Styling */
+#gameImage {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    display: block;
+    margin: 0 auto 20px auto;
+    border: 5px solid var(--bs-primary); /* Border tebal kuning */
+    border-radius: 10px;
+    object-fit: contain; /* Memastikan gambar pas di dalam kotak */
+    background-color: #fff; /* Latar belakang putih untuk gambar transparan */
+}
+
+/* Table Styling (Leaderboard) */
+.table {
+    border-radius: 10px;
+    overflow: hidden; /* Untuk border-radius di table */
+}
+.table thead {
+    background-color: var(--bs-primary);
+    color: var(--bs-dark);
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--bs-light);
+}
+
+/* Message Display */
+#message {
+    font-weight: bold;
+}
+.text-success { color: #28a745 !important; } /* Tetap hijau untuk sukses */
+.text-danger { color: #dc3545 !important; }   /* Tetap merah untuk error */
+.text-info { color: #17a2b8 !important; }     /* Tetap biru untuk info */
+
+/* Footer Styling */
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--bs-primary) !important; /* Footer juga kuning */
+    color: var(--bs-dark) !important;
+    font-weight: bold;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
+}
+
+/* Profil Background dengan Motif */
+.profile-card-header {
+    background-color: var(--bs-primary) !important;
+    color: var(--bs-dark) !important;
+    background-image: linear-gradient(45deg, rgba(255,165,0,0.2) 25%, transparent 25%, transparent 75%, rgba(255,165,0,0.2) 75%, rgba(255,165,0,0.2) 100%),
+                      linear-gradient(45deg, rgba(255,165,0,0.2) 25%, transparent 25%, transparent 75%, rgba(255,165,0,0.2) 75%, rgba(255,165,0,0.2) 100%);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    border-bottom: 2px solid var(--bs-secondary);
+}
+
+/* Utility classes untuk margin/padding jika dibutuhkan */
+.my-custom-margin {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
